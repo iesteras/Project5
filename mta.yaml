@@ -1,0 +1,83 @@
+_schema-version: "3.2"
+ID: project4
+version: 0.0.1
+modules:
+- name: project4-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: project4-repo-host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - devnttdatacomproject4.zip
+      name: devnttdatacomproject4
+      target-path: resources/
+- name: devnttdatacomproject4
+  type: html5
+  path: project4
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: project4-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: project4-destination-service
+    parameters:
+      content-target: true
+  - name: project4-repo-host
+    parameters:
+      service-key:
+        name: project4-repo-host-key
+  - name: uaa_project4
+    parameters:
+      service-key:
+        name: uaa_project4-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: Project4_project4_repo_host
+          ServiceInstanceName: project4-html5-srv
+          ServiceKeyName: project4-repo-host-key
+          sap.cloud.service: Project4
+        - Authentication: OAuth2UserTokenExchange
+          Name: Project4_uaa_project4
+          ServiceInstanceName: project4-xsuaa-service
+          ServiceKeyName: uaa_project4-key
+          sap.cloud.service: Project4
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+resources:
+- name: project4-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: project4-html5-srv
+    service-plan: app-host
+- name: project4-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      version: 1.0.0
+    service: destination
+    service-name: project4-destination-service
+    service-plan: lite
+- name: uaa_project4
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: project4-xsuaa-service
+    service-plan: application
+parameters:
+  deploy_mode: html5-repo
