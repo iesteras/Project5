@@ -10,6 +10,10 @@ sap.ui.define([
         return Controller.extend("dev.nttdata.com.project4.controller.View1", {
             onInit: function () {
 
+            },
+            
+            contador: function (valor) {
+                return valor + 1;
             }
         });
     });
