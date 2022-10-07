@@ -1,11 +1,12 @@
-const view1Controller = require("../controller/View1.controller.js");
+sap.ui.define([
+	"../controller/View1.controller.js"
+], function(View1Controller) {
+	"use strict";
 
-describe("Opentext Service Unit Test", () => {
 	describe("Testing method count", () => {
 		it("+ method count", (done) => {
             let param = 3;
-            let instan = new view1Controller();
-            const incrementado = instan.contador(param)        
+            const incrementado = View1Controller.contador(param)        
             if (incrementado === 4){
                 done();                    
             }else{
@@ -14,6 +15,5 @@ describe("Opentext Service Unit Test", () => {
 		});
 	});
 
-    
-    
+	
 });
