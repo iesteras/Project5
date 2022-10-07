@@ -15,7 +15,10 @@
         "@sap/ux-ui5-tooling": "1",
         "@sap/ui5-builder-webide-extension": "^1.1.8",
         "ui5-task-zipper": "^0.5.0",
-        "mbt": "^1.2.18"
+        "mbt": "^1.2.18",
+        "chai": "^4.3.6",
+        "chai-http": "^4.3.0",
+        "mocha": "^9.2.2"
     },
     "scripts": {
         "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#devnttdatacomproject4-display\"",
@@ -34,10 +37,7 @@
             "@sap/ux-ui5-tooling",
             "@sap/ui5-builder-webide-extension",
             "ui5-task-zipper",
-            "mbt",
-            "chai": "^4.3.6",
-            "chai-http": "^4.3.0",
-            "mocha": "^9.2.2"
+            "mbt"            
         ]
     },
     "sapuxLayer": "CUSTOMER_BASE"
