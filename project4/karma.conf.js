@@ -8,7 +8,7 @@ module.exports = function(config) {
 	config.set({
 
 		frameworks: ["ui5", "qunit"],
-
+		plugins: ["karma-qunit"],
 		browsers: ["ChromeHeadless"],
 
 		browserConsoleLogOptions: {
