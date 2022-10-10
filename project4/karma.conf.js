@@ -20,7 +20,7 @@ module.exports = function(config) {
         			}
       			},
       			tests: [
-        			"root_path/test/unit/AllTests"
+        			"root_path/test/unit/unitTests.qunit.html"
       			]
     		},
 		
