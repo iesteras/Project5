@@ -8,7 +8,7 @@ module.exports = function(config) {
 	config.set({
 
 		frameworks: ["ui5", "qunit"],
-		plugins: ["karma-ui5", "karma-qunit"],
+		plugins: ["karma-ui5", "karma-qunit", "karma-coverage"],
 		
 		ui5: {
       			url: "https://openui5.hana.ondemand.com",
