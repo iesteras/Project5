@@ -9,6 +9,21 @@ module.exports = function(config) {
 
 		frameworks: ["ui5", "qunit"],
 		plugins: ["karma-qunit"],
+		
+		ui5: {
+      			url: "https://openui5.hana.ondemand.com",
+      			mode: "script",
+      			config: {
+        			async: true,
+        			resourceRoots: {
+          				"root_path": "./webapp"
+        			}
+      			},
+      			tests: [
+        			"root_path/test/unit/AllTests"
+      			]
+    		},
+		
 		browsers: ["ChromeHeadless"],
 
 		browserConsoleLogOptions: {
