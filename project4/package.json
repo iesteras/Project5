@@ -33,6 +33,7 @@
         "deploy-config": "fiori add deploy-config",
         "start-noflp": "fiori run --open \"index.html?sap-ui-xx-viewCache=false\"",
         "start-variants-management": "fiori run --open \"preview.html?sap-ui-xx-viewCache=false&fiori-tools-rta-mode=true&sap-ui-rta-skip-flex-validation=true#preview-app\"",
+        "karma-ci": "rimraf coverage && karma start karma-ci.conf.js",
         "unit-tests": "npm run karma-ci",
         "int-tests": "fiori run --open 'test/integration/opaTests.qunit.html'",
         "build:cf": "ui5 build preload --clean-dest --config ui5-deploy.yaml --include-task=generateManifestBundle generateCachebusterInfo"
