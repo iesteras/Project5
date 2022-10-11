@@ -31,8 +31,8 @@ stages:
         vmImage: 'ubuntu-latest'
       container: mta
       steps:
-        - bash: 'mbt build -p=cf --mtar project4.mtar'
-        - publish: $(System.DefaultWorkingDirectory)/.
+        - bash: 'cd project4 && mbt build -p=cf --mtar project4.mtar'
+        - publish: $(System.DefaultWorkingDirectory)/project4/.
           artifact: WebApp
           
 
@@ -46,7 +46,7 @@ stages:
       container: node
       steps:
         - bash: 'npm config set "@sap:registry" "https://npm.sap.com" && npm install && npm run-script unit-tests'
-        - publish: $(System.DefaultWorkingDirectory)/.
+        - publish: $(System.DefaultWorkingDirectory)/project4/.
           artifact: TestResult
 
 
