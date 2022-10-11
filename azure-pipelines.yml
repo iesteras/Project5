@@ -45,7 +45,7 @@ stages:
         vmImage: 'ubuntu-latest'
       container: node
       steps:
-        - bash: 'cd project4 && npm config set "@sap:registry" "https://registry.npmjs.org" && npm install && npm install karma-ui5 && npm run-script unit-tests'
+        - bash: 'cd project4 && npm config set "@sap:registry" "https://registry.npmjs.org" && npm install && npm install --save-dev karma-ui5 && npm run-script unit-tests'
         - publish: $(System.DefaultWorkingDirectory)/project4/.
           artifact: TestResult
 
