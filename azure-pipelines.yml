@@ -19,7 +19,7 @@ resources:
 
 
 trigger:
-- master
+- main
 
 
 stages:
