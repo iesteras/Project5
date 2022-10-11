@@ -8,21 +8,10 @@ module.exports = function(config) {
 	config.set({
 
 		frameworks: ["ui5"],
-		plugins: ["karma-ui5", "karma-qunit", "karma-coverage", "karma-chrome-launcher"],
-		
+				
 		ui5: {
-      			url: "https://openui5.hana.ondemand.com",
-      			mode: "script",
-      			config: {
-        			async: true,
-        			resourceRoots: {
-          				"root_path": "./webapp"
-        			}
-      			},
-      			tests: [
-        			"root_path/test/unit/unitTests.qunit.html"
-      			]
-    		},
+        		url: "https://sapui5.hana.ondemand.com"
+      		},
 		
 		browsers: ["ChromeHeadless"],
 
