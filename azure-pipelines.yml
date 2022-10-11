@@ -45,7 +45,7 @@ stages:
         vmImage: 'ubuntu-latest'
       container: node
       steps:
-        - bash: 'cd project4 && npm config set "@sap:registry" "https://registry.npmjs.org" && npm install && npm run-script unit-tests'
+        - bash: 'npm config set "@sap:registry" "https://registry.npmjs.org" && npm install && npm run-script unit-tests'
         - publish: $(System.DefaultWorkingDirectory)/project4/.
           artifact: TestResult
 
