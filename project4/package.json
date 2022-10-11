@@ -20,7 +20,7 @@
         "karma-chrome-launcher": "^3.1.0",
         "karma-coverage": "^2.0.2",
         "karma-qunit": "^4.1.2",
-        "karma-ui5": "^2.2.0",
+        "karma-ui5": "^2.4.0",
         "mbt": "^1.2.18",
         "mocha": "^9.2.2",
         "qunit": "^2.19.1",
