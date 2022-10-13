@@ -14,7 +14,7 @@ resources:
     image: 'ppiper/cf-cli'
     options: --user 0:0 --privileged
   - container: node
-    image: 'geekykaran/headless-chrome-node-docker:latest'
+    image: 'node'
     options: --privileged
 
 
