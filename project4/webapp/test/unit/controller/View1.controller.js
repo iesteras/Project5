@@ -14,7 +14,8 @@ sap.ui.define([
 	QUnit.test("Test contador function", function (assert) {
 		let antes = 4;
 		let despues = 5;
-		let resultado = AppController.contador(antes);
+		var View1 = new AppController();
+		let resultado = View1.contador(antes);
 		assert.strictEqual(despues, resultado, "despues matches resultado");
 	});
 	
