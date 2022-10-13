@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 
-name: hello-world
+name: Karma-ui5-test
 resources:
   containers:
   - container: mta
@@ -13,14 +13,9 @@ resources:
   - container: cfcli
     image: 'ppiper/cf-cli'
     options: --user 0:0 --privileged
-  - container: node
-    image: 'node'
-    options: --privileged
-
 
 trigger:
 - main
-
 
 stages:
 - stage: build
@@ -63,4 +58,4 @@ stages:
       steps:
         - download: current
           artifact: WebApp
-        - bash: 'cf help && cf login -u "$(CF-USER)" -p "$(CF-PASSWORD)" -a "$(CF-API)" -o "$(CF-ORG)" -s "$(CF-SPACE)" && cf deploy $(Pipeline.Workspace)/project4/mta_archives/project4.mtar -f'
+        - bash: 'cf help && cf login -u "$(CF-USER)" -a "$(CF-API)" -o "$(CF-ORG)" -s "$(CF-SPACE)" --sso-passcode "$(CF-PASSWORD)" && cf deploy $(Pipeline.Workspace)/project4/mta_archives/project4.mtar -f'
