@@ -10,7 +10,14 @@ sap.ui.define([
 	"use strict";
 
 	QUnit.module("View1 Controller");
-
+	
+	QUnit.test("Test contador function", function (assert) {
+		let antes = 4;
+		let despues = 5;
+		let resultado = AppController.contador(antes);
+		assert.strictEqual(despues, resultado, "despues matches resultado");
+	});
+	
 	QUnit.test("Test match functions", function (assert) {
 		assert.strictEqual("D", "D", "D matches D");
 	});
