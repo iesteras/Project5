@@ -14,7 +14,7 @@ resources:
     image: 'ppiper/cf-cli'
     options: --user 0:0 --privileged
   - container: node
-    image: 'node'
+    image: 'atools/chrome-headless'
     options: --privileged
 
 
@@ -43,7 +43,7 @@ stages:
     - job: test
       pool:
         vmImage: 'ubuntu-latest'
-      container: mta
+      container: node
       steps:
         - bash: 'cd project4 && npm config set "@sap:registry" "https://registry.npmjs.org" && npm install && npm run-script unit-tests'
         - publish: $(System.DefaultWorkingDirectory)/project4/.
