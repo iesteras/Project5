@@ -27,7 +27,7 @@ stages:
       container: mta
       steps:
         - bash: 'mbt build -p=cf --mtar project4.mtar'
-        - publish: $(System.DefaultWorkingDirectory)/project4/.
+        - publish: $(System.DefaultWorkingDirectory)/.
           artifact: WebApp
 
 - stage: test
@@ -58,4 +58,4 @@ stages:
       steps:
         - download: current
           artifact: WebApp
-        - bash: 'cd project4 && cd webapp && ls && cf login -u "$(CF-USER)" -a "$(CF-API)" -o "$(CF-ORG)" -s "$(CF-SPACE)" --sso-passcode "$(CF-PASSWORD)" && cf deploy $(Pipeline.Workspace)/project4/webapp/mta_archives/project4.mtar -f'
+        - bash: 'ls && cd project4 && ls && cd webapp && ls && cf login -u "$(CF-USER)" -a "$(CF-API)" -o "$(CF-ORG)" -s "$(CF-SPACE)" --sso-passcode "$(CF-PASSWORD)" && cf deploy $(Pipeline.Workspace)/project4/webapp/mta_archives/project4.mtar -f'
