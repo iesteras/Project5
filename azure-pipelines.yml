@@ -33,7 +33,7 @@ steps:
   displayName: 'npm install and build'
 
 - script: |
-    cd project4 $$ npm unit-tests
+    cd project4 && npm unit-tests
   continueOnError: true
   displayName: 'Run karma test'
   
