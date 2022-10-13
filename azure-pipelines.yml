@@ -53,3 +53,14 @@ stages:
             cd project4 && npm run unit-tests
           continueOnError: true
           displayName: 'Run karma test'
+- stage: deploy
+  displayName: Deployment to SAP Cloud Platform Trial (cf)
+  jobs:
+    - job: deploy
+      pool:
+        vmImage: 'ubuntu-latest'
+      container: cfcli
+      steps:
+        - download: current
+          artifact: WebApp
+        - bash: 'cf login -u "$(CF-USER)" -p "$(CF-PASSWORD)" -a "$(CF-API)" -o "$(CF-ORG)" -s "$(CF-SPACE)" && cf deploy $(Pipeline.Workspace)/project4/mta_archives/project4.mtar -f'
