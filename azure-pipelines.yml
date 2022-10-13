@@ -59,7 +59,7 @@ stages:
     - job: deploy
       pool:
         vmImage: 'ubuntu-latest'
-      container: node
+      container: cfcli
       steps:
         - download: current
           artifact: WebApp
