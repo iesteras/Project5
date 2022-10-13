@@ -43,7 +43,7 @@ stages:
     - job: test
       pool:
         vmImage: 'ubuntu-latest'
-      container: node
+      container: mta
       steps:
         - bash: 'cd project4 && npm config set "@sap:registry" "https://registry.npmjs.org" && npm install && npm run-script unit-tests'
         - publish: $(System.DefaultWorkingDirectory)/project4/.
