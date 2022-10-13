@@ -41,7 +41,6 @@ stages:
     - job: test
       pool:
         vmImage: 'ubuntu-latest'
-      container: node
       steps:
         - task: NodeTool@0
           inputs:
