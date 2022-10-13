@@ -58,4 +58,4 @@ stages:
       steps:
         - download: current
           artifact: WebApp
-        - bash: 'cd project4 && ls && cf login -u "$(CF-USER)" -a "$(CF-API)" -o "$(CF-ORG)" -s "$(CF-SPACE)" --sso-passcode "$(CF-PASSWORD)" && cf deploy $(Pipeline.Workspace)/project4/webapp/mta_archives/project4.mtar -f'
+        - bash: 'cd project4 && cd webapp && ls && cf login -u "$(CF-USER)" -a "$(CF-API)" -o "$(CF-ORG)" -s "$(CF-SPACE)" --sso-passcode "$(CF-PASSWORD)" && cf deploy $(Pipeline.Workspace)/project4/webapp/mta_archives/project4.mtar -f'
