@@ -52,17 +52,15 @@ stages:
             cd project4 && npm run unit-tests
           continueOnError: true
           displayName: 'Run karma test'
-        - task: SonarQubePrepare@4
-          displayName: Prepare Analysis Configuration task
+        - task: SonarCloudPrepare@1
           inputs:
-            SonarQube: 'SonarQube'
-            scannerMode: 'Other'
-            extraProperties: |
-              sonar.projectVersion=1.0.0.0
-              sonar.projectName=project4
-              sonar.sources=project4/webapp/
-              sonar.sourceEncoding=UTF-8
-          enabled: true
+            SonarCloud: 'Sonar Cloud'
+            organization: 'iesteras'
+            scannerMode: 'CLI'
+            configMode: 'manual'
+            cliProjectKey: 'iesteras_TestingSapui5Public'
+            cliProjectName: 'TestingSapui5Public'
+            cliSources: '.'
 - stage: deploy
   displayName: Deployment to SAP Cloud Platform Trial (cf)
   jobs:
