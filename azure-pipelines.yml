@@ -62,7 +62,9 @@ stages:
             cliProjectName: 'TestingSapui5Public'
             cliSources: '.'
         - task: SonarCloudAnalyze@1
-        
+        - task: SonarCloudPublish@1
+          inputs:
+            pollingTimeoutSec: '300'
 - stage: deploy
   displayName: Deployment to SAP Cloud Platform Trial (cf)
   jobs:
