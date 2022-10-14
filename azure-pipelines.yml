@@ -26,7 +26,7 @@ stages:
         vmImage: 'ubuntu-latest'
       container: mta
       steps:
-        - bash: 'mbt build -p=cf --mtar project4.mtar && ls && cd project4 && ls && cd webapp && ls'
+        - bash: 'mbt build -p=cf --mtar project4.mtar'
         - publish: $(System.DefaultWorkingDirectory)/.
           artifact: WebApp
 
@@ -75,4 +75,4 @@ stages:
       steps:
         - download: current
           artifact: WebApp
-        - bash: 'ls && cd project4 && ls && cd webapp && ls && cf login -u "$(CF-USER)" -a "$(CF-API)" -o "$(CF-ORG)" -s "$(CF-SPACE)" --sso-passcode "$(CF-PASSWORD)" && cf deploy $(Pipeline.Workspace)/project4/webapp/mta_archives/project4.mtar -f'
+        - bash: 'cf login -u "$(CF-USER)" -a "$(CF-API)" -o "$(CF-ORG)" -s "$(CF-SPACE)" --sso-passcode "$(CF-PASSWORD)" && cf deploy $(Pipeline.Workspace)/project4/webapp/mta_archives/project4.mtar -f'
