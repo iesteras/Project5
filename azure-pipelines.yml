@@ -52,6 +52,13 @@ stages:
             cd project4 && npm run unit-tests
           continueOnError: true
           displayName: 'Run karma test'
+- stage: validate
+  displayName: Run SonarCloud
+  jobs:
+    - job: SonarCloudValidation
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
         - task: SonarCloudPrepare@1
           inputs:
             SonarCloud: 'Sonar Cloud'
