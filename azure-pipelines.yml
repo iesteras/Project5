@@ -52,6 +52,17 @@ stages:
             cd project4 && npm run unit-tests
           continueOnError: true
           displayName: 'Run karma test'
+        - task: SonarQubePrepare@4
+          displayName: Prepare Analysis Configuration task
+          inputs:
+            SonarQube: 'SonarQube'
+            scannerMode: 'Other'
+            extraProperties: |
+              sonar.projectVersion=1.0.0.0
+              sonar.projectName=project4
+              sonar.sources=project4/webapp/
+              sonar.sourceEncoding=UTF-8
+          enabled: true
 - stage: deploy
   displayName: Deployment to SAP Cloud Platform Trial (cf)
   jobs:
