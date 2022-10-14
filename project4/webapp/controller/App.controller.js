@@ -6,7 +6,7 @@ sap.ui.define(
       "use strict";
   
       return BaseController.extend("dev.nttdata.com.project4.controller.App", {
-        onInit() {
+        onInit: function () {
         }
       });
     }
