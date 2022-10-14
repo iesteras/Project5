@@ -6,6 +6,7 @@
 		"sap": true,
 		"jQuery": true
 	},
+	"ignorePatterns": ["webapp/localservice/**", "webapp/test/**","test/**"],
 	"rules": {
 		"block-scoped-var": 1,
 		"brace-style": [2, "1tbs", { "allowSingleLine": true }],
