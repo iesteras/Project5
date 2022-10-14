@@ -16,6 +16,7 @@
         "@ui5/cli": "^2.14.1",
         "chai": "^4.3.6",
         "chai-http": "^4.3.0",
+        "ESLint": "^8.25.0",
         "karma": "^4.4.1",
         "karma-chrome-launcher": "^3.1.0",
         "karma-coverage": "^2.0.2",
@@ -38,6 +39,7 @@
         "karma-ci": "karma start karma-ci.conf.js",
         "unit-tests": "npm run karma-ci",
         "int-tests": "fiori run --open 'test/integration/opaTests.qunit.html'",
+        "linter": "eslint project4",
         "build:cf": "ui5 build preload --clean-dest --config ui5-deploy.yaml --include-task=generateManifestBundle generateCachebusterInfo"
     },
     "ui5": {
