@@ -14,6 +14,9 @@ sap.ui.define([
             
             contador: function (valor) {
                 return valor + 1;
+            },
+            sumador: function (valor1, valor2) {
+                return valor1 + valor2;
             }
         });
     });
